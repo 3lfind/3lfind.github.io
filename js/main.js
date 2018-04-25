@@ -1,95 +1,102 @@
-var snake = new Snake();
-var food = new Food();
-var s= 30;
-var h = 400;
-var w = 600;
+(function($) {
+  "use strict"; // Start of use strict
 
-function setup() {
-    createCanvas(w,h);
-    frameRate(10);
-}
+  // Smooth scrolling using jQuery easing
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: (target.offset().top - 48)
+        }, 1000, "easeInOutExpo");
+        return false;
+      }
+    }
+  });
 
-function draw() {
-    background('black');
-    snake.update();
-    food.look();
-    snake.display();
-}
+  // Closes responsive menu when a scroll trigger link is clicked
+  $('.js-scroll-trigger').click(function() {
+    $('.navbar-collapse').collapse('hide');
+  });
 
-function Food() {
-    food=[];
-    this.x = 0;
-    this.y = 0;
-    this.look = function() {
-        noStroke();
-        fill(random(50,250),random(50,250),random(50,250));
-        ellipse(this.x, this.y, s, s,s);
+  // Activate scrollspy to add active class to navbar items on scroll
+  $('body').scrollspy({
+    target: '#mainNav',
+    offset: 54
+  });
+
+  // Collapse Navbar
+  var navbarCollapse = function() {
+    if ($("#mainNav").offset().top >100) {
+      $("#mainNav").addClass("navbar-shrink");
+    } else {
+      $("#mainNav").removeClass("navbar-shrink");
+    }
+  };
+  // Collapse now if page is not at top
+  navbarCollapse();
+  // Collapse the navbar when page is scrolled
+  $(window).scroll(navbarCollapse);
+
+})(jQuery); // End of use strict
+
+
+//text wrap
+var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
     };
-    this.position = function() {
-        this.x = Math.floor(random(0, w/s)) * s;
-        this.y = Math.floor(random(0, h/s)) * s;
-    };
-}
 
-function Snake() {
-    this.tail = [];
-    this.x = 0;
-    this.y = 0;
-    this.direction = "RIGHT";
-    this.update = function() {
-        if(this.direction === "RIGHT") {
-            this.x = this.x + s;
-        } else if(this.direction === "LEFT") {
-            this.x = this.x - s;
-        } else if(this.direction === "UP") {
-            this.y = this.y - s;
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
         } else {
-            this.y = this.y + s;
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
 
-        if(this.x >= w) {
-            this.x = 0;
-        }
-        if(this.x < 0) {
-            this.x = w;
-        }
-        if(this.y >= h) {
-            this.y = 0;
-        }
-        if(this.y < 0) {
-            this.y = h;
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
         }
 
-        if(this.x === food.x && this.y === food.y) {
-            this.eat();
-        }
-        for(var i=this.tail.length-1; i>=1; i--) {
-            this.tail[i] = this.tail[i-1];
-        }
-        this.tail[0] = [this.x, this.y];
+        setTimeout(function() {
+        that.tick();
+        }, delta);
     };
 
-    this.eat = function() {
-        food.position();
-        this.tail.push([this.x, this.y]);
-    };
-
-    this.display = function() {
-        fill(255,255,255);
-        for(var i=0; i<this.tail.length; i++) {
-            ellipse(this.tail[i][0],this.tail[i][1], s, s,s);
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
         }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fffff0}";
+        document.body.appendChild(css);
     };
-}
 
-function keyPressed() {
-  if (keyCode === UP_ARROW) {
-    snake.direction = "UP";
-  } else if (keyCode === DOWN_ARROW) {
-    snake.direction = "DOWN";
-  } else if (keyCode === RIGHT_ARROW) {
-    snake.direction = "RIGHT";
-  } else if (keyCode === LEFT_ARROW) {
-    snake.direction = "LEFT";
-  }
-}

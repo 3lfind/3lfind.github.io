@@ -1,14 +1,205 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Snake Game</title>
-	<link href="css/style.css" rel="stylesheet">
-</head>
-<body>
-	<h1>Snake Game</h1>
-	 <script src="p5.min.js"></script>
-    <script src="p5.dom.min.js"></script>
-	<script src="js/main.js"></script>
-</body>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="portfolio website">
+    <meta name="author" content="Lulu">
+
+ 
+    <title>lulu's portfolio</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    
+	<!--favicon-->
+	<link rel="shortcut icon" type="image/png" href="img/initial%20design.png">
+	</head>
+	
+  <body id="page-top">
+       
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">portfolio</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#page-top">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#myWork">Work</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <header class="bgHeader bg-dark">
+      <div class="container text-center text-light">
+		  <h1 class="title">Lulu Lin</h1>
+		  <br />
+		   <p class="typewrite motto" data-period="2000" data-type='[ "Learning to do, Doing to learn." ]'>
+    <span class="wrap"></span>
+  </p> 
+      <a href="#about" class="btn btn-circle js-scroll-trigger">
+                <i class="fa fa-angle-double-down animated"></i>
+              </a>
+      
+		</div>
+    
+    </header>
+ 
+    <section id="about">
+      <div class="container">
+         <h2 class="titleName">About</h2>
+        <div class="row">
+         <div class="col-lg-4 mx-auto ">
+         <img src="img/me.jpg" class="img-fluid img-thumbnail me" alt="img">
+         
+			</div>
+          <div class="col-lg-8 mx-auto bio">
+            <p class="lead">A highly motivated college student looking to expand knowledge and experience within the categories of web design and web programming. Possesses an ability to work individually, as well as in teams with high enthusiasm to learn new skills, ideas, and techniques. </p>
+            <a href="img/Resume%20by%20Lulu%20Lin.pdf" download class="drProject1 text-center resume">resume</a>
+
+			<a href="https://www.linkedin.com/in/lulu-lin-04a4aa15a/"  target="_blank" class="drProject1 text-center resume">LinkeIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="myWork" >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mx-auto">
+            <h2 class="titleName">My Work</h2>
+            
+			</div>
+        <div class="container-fluid">
+	<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 title1 ">
+			<h5 class="secName">Graphic Design</h5>
+            <hr>
+             <ul>
+				 <li> <a href="booklet.html" target="_blank" class="drProject">  <img src="img/alphabet10.jpg" class="img-fluid img-thumbnail" alt="img" ></a>
+					<p class="text-center lead">  <a href="booklet.html" target="_blank" class="drProject">Alphabet Booklet</a></p>
+            	</li>
+				 <li> <a href="magazine.html" target="_blank" class="drProject">  <img src="img/magazine%20cover.jpg" class="img-fluid img-thumbnail" alt="img" ></a>
+            	  
+					<p class="text-center lead">
+				  <a href="magazine.html" target="_blank" class="drProject">Magazine Layout</a></p></li>
+					 
+				 <li><a href="poster.html" target="_blank" class="drProject">   <img src="img/typographic%20poster.jpg" class="img-fluid img-thumbnail" alt="img"></a>
+					 <p class="text-center lead"> <a href="poster.html" target="_blank" class="drProject">Typography Poster</a></p></li>
+            	
+            </ul>
+            
+			</div>
+		
+	<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 title1">
+			<h5 class="secName">Web Design</h5>
+                 <hr>
+            <ul>
+				<li> <a href="cunyDesign.html" target="_blank" class="drProject"> <img src="img/phone2.jpg" class="img-fluid img-thumbnail" alt="img"          ></a>
+					<a href="cunyDesign.html" target="_blank" class="drProject"><p class="text-center lead">CUNY Design Website</p></a></li>
+            	<li>  <img src="img/desktop.jpg" class="img-fluid img-thumbnail" alt="img"          >
+            	  <p class="text-center lead">Gallery Website</p></li>
+            	<li> <a href="game.html" target="_blank" class="drProject"> <img src="img/snakeGame.jpg" class="img-fluid img-thumbnail" alt="img"          ></a>
+					<a href="game.html" target="_blank" class="drProject"><p class="text-center lead">Snake Game</p></a></li>
+            </ul>
+      
+			</div>
+			
+        
+	<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 title1">
+			<h5 class="secName">Art Practice</h5>
+               <hr>
+           <ul>
+			   <li><a href="drawing.html" target="_blank" class="drProject">  <img src="img/pencil%20drawing.jpeg" class="img-fluid img-thumbnail" alt="img"          ></a>
+					<p class="text-center lead"><a href="drawing.html" target="_blank" class="drProject">Portrait Drawing</a></p>
+            	           </li>
+            	<li>  <img src="img/chinese%20line%20drawing%20in%20brush.jpeg" class="img-fluid img-thumbnail" alt="img"          >
+            	   <p class="text-center lead">Chinese Brush Line Drawing </p></li>
+            	<li>  <img src="img/gouache%20painting.jpeg" class="img-fluid img-thumbnail" alt="img">
+            	           <p class="text-center lead">Gouache Painting</p></li>
+            	
+            </ul>
+       
+			</div>
+			</div>
+     
+    <div class="clearfix"></div>
+</div>
+     
+		</div>
+		</section>
+   
+   <section id="contact">
+  <div class="container">
+  <h2 class="titleName">Contact me</h2>
+   <div class="row">
+     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 map ">
+      
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="80%" height="315" style="border:0" allowfullscreen></iframe>
+      </div>
+
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
+         <h4 class="touch">Get in Touch</h4>
+        <form class="form">
+          <div class="form-group">
+            <input type="text" class="form-control"     placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control"     placeholder="E-mail">
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-control"     placeholder="Phone">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control"   rows="3" placeholder="Message"></textarea>
+          </div>
+          <button class="btn btn-default" type="submit" name="button">
+              <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer class=" bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white lead">Copyright &copy; Lulu's portfolio 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/main.js"></script>
+
+  </body>
+
 </html>
